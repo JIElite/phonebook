@@ -1,0 +1,12 @@
+set grid
+
+set style data histogram
+set style fill solid 0.4 border
+
+set title "Hash V.S Original"
+set ylabel "times"
+
+set term png
+set output "hash-origin.png"
+
+plot "hash-vs-origin" using 2:xtic(1) title "origin", "" using 3 title "hash-djb-20809"
