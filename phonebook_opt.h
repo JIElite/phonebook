@@ -2,7 +2,7 @@
 #define _PHONEBOOK_H
 
 #define MAX_LAST_NAME_SIZE 16
-#define HASH_TABLE_SIZE 2377 
+#define HASH_TABLE_SIZE 20809 
 
 struct __PHONE_DETAILS{
     char state[2];
@@ -28,7 +28,6 @@ extern entry *hash_table[HASH_TABLE_SIZE];
 extern entry *hash_entry[HASH_TABLE_SIZE];
 
 
-int hash(char lastname[]);
 entry *findName(char lastname[], entry *pHead);
 entry *append(char lastName[], entry *e);
 
