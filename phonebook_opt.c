@@ -9,17 +9,8 @@
 entry *hash_table[HASH_TABLE_SIZE];
 entry *hash_entry[HASH_TABLE_SIZE];
 
-int hash(char lastname[]){
-    int number = 0;
-    while(*lastname){
-        number += *lastname++;
-        if (*lastname) number += ((int) *lastname++) << 8;
-    }
-    return number % HASH_TABLE_SIZE;
-}
 
-/*
-int hash(char lastname[]){
+static inline int hash(char lastname[]){
     const unsigned char *name = (const unsigned char *)lastname;
     unsigned int h = 5381;
     int ch;
@@ -29,12 +20,10 @@ int hash(char lastname[]){
     
     return h % HASH_TABLE_SIZE;
 }
-*/
 
 entry *findName(char lastname[], entry *pHead)
 {
     int hash_value = hash(lastname);
-//    int hash_value = lastname[0] - 'a';
     pHead = hash_table[hash_value];
 
     while (pHead) {
@@ -51,7 +40,6 @@ entry *findName(char lastname[], entry *pHead)
 entry *append(char lastname[], entry *e)
 {
     int hash_value = hash(lastname);
-//    int hash_value = lastname[0] - 'a';
     entry *new_node = (entry *)malloc(sizeof(entry));
 
     if (hash_table[hash_value] == NULL){
