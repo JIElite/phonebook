@@ -83,7 +83,6 @@ int main(int argc, char *argv[])
     printf("execution time of findName() : %lf sec\n", cpu_time2);
 
     /* FIXME: release all allocated entries */
-    free(pHead);
-
+    free_structure(pHead);
     return 0;
 }
