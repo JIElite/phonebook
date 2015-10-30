@@ -41,6 +41,11 @@ entry *append(char lastname[], entry *e)
 {
     int hash_value = hash(lastname);
     entry *new_node = (entry *)malloc(sizeof(entry));
+    if (new_node == NULL){
+        printf("malloc error in function: append  \"%s\"\n", lastname);
+        return NULL;
+    }
+
 
     if (hash_table[hash_value] == NULL){
         new_node->pNext = NULL;
