@@ -61,3 +61,20 @@ entry *append(char lastname[], entry *e)
     hash_entry[hash_value] = new_node;
     return new_node;
 }
+
+
+void free_structure(void *head)
+{
+    free(head);
+
+    for (int i = 0; i < HASH_TABLE_SIZE; i++){
+        entry *traverse = hash_table[i];
+        while (traverse){
+            entry *release_node = traverse;
+            traverse = traverse->pNext;
+            free(release_node);
+        }
+
+    }
+    return;
+}

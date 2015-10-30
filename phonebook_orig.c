@@ -26,3 +26,16 @@ entry *append(char lastName[], entry *e)
 
     return e;
 }
+
+void free_structure(void *head)
+{
+    
+    entry *pHead = (entry *)head;
+    
+    while (pHead){
+        entry *release_node = pHead;
+        pHead = pHead->pNext;
+        free(release_node);
+    }
+    return;
+}

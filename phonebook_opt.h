@@ -30,5 +30,6 @@ extern entry *hash_entry[HASH_TABLE_SIZE];
 
 entry *findName(char lastname[], entry *pHead);
 entry *append(char lastName[], entry *e);
+void free_structure(void *);
 
 #endif
