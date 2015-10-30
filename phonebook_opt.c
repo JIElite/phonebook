@@ -65,7 +65,7 @@ entry *append(char lastname[], entry *e)
 
 void free_structure(void *head)
 {
-    free(head);
+    if (head) free(head);
 
     for (int i = 0; i < HASH_TABLE_SIZE; i++){
         entry *traverse = hash_table[i];
